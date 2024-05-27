@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  playwrite-tests:
+  tests:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +30,8 @@ jobs:
         run: pnpm exec playwright install --with-deps
       - name: Run Playwright tests
         run: pnpm playwrite:test
+      - name: Run Vitest tests
+        run: pnpm vitest:test
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -37,21 +39,10 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-  vitest-tests:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install dependencies
-        run: pnpm install
-      - name: Run Vitest tests
-        run: pnpm vitest:test
-
   deploy:
     runs-on: ubuntu-latest
     needs:
-      - playwrite-tests
-      - vitest-tests
+      - tests
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
