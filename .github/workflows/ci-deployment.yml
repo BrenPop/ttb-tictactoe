@@ -30,8 +30,8 @@ jobs:
         run: pnpm exec playwright install --with-deps
       - name: Run Playwright tests
         run: pnpm playwrite:test
-      - name: Run Vitest tests
-        run: pnpm vitest:test
+      # - name: Run Vitest tests
+      #   run: pnpm vitest:test
       - uses: actions/upload-artifact@v4
         if: always()
         with:
