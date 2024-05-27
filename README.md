@@ -9,3 +9,8 @@ Steps:
 3. ensure you are using node v16, you can use nvm to manage this
 4. run pnpm install
 5. to run locally using an express server you can use the command: pnpm start
+
+To test locally:
+
+1. For Playwrite end to end run: pnpm exec playwright test
+2. For Vitest:
