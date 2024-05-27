@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "playwrite:test": "exec playwright test",
-    "vitest:test": "vitest"
+    "playwrite:test": "exec playwright test"
   },
   "keywords": [],
   "author": "",
@@ -14,9 +13,10 @@
     "express": "^4.19.2"
   },
   "devDependencies": {
-    "@playwright/test": "^1.44.1",
-    "@types/node": "^20.12.12",
-    "jsdom": "^24.1.0",
-    "vitest": "^1.6.0"
+    "@playwright/test": "^1.44.1"
+  },
+  "engines": {
+    "node": "16.20.2",
+    "pnpm": "8"
   }
 }
