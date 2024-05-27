@@ -1,0 +1,99 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #333;
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.cell:hover {
+    background: #555;
+}
+
+.button-group {
+    margin: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background: #666;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 5px;
+}
+
+button:hover {
+    background: #777;
+}
+
+.winning-message {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.winning-message.show {
+    display: flex;
+}
+
+@media (max-width: 600px) {
+    .board {
+        width: 90%;
+    }
+
+    .cell {
+        height: 30vw;
+        font-size: 1.5rem;
+    }
+}
+
+.x::before {
+    content: 'X';
+    color: #f00;
+}
+
+.o::before {
+    content: 'O';
+    color: #0f0;
+}
